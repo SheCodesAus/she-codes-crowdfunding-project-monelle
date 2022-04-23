@@ -8,6 +8,9 @@ import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 
+// Styles
+import "./App.css";
+
 function App() {
   return (
     <Router>
