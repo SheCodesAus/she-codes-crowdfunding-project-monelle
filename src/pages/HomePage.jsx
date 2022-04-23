@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Components
 import ProjectCard from '../components/ProjectCard/ProjectCard';
@@ -8,6 +8,21 @@ import { allProjects } from "../data";
 
 
 function HomePage() {
+// States
+    const [projectList, setProjectList] = useState([]);
+
+//  Action and Helpers
+    // UseEffect runs this specific piece of code within the whole program
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}projects`)
+        .then((results) => {
+            return results.json();
+            })
+        .then((data) => {
+            setProjectList(data);
+        });
+}, []);
+
     return (
     <div id="project-list">
         {allProjects.map((projectData, key) => {
