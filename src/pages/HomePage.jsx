@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 
 // Data
-import { allProjects } from "../data";
+import { allProjects as projectList } from "../data";
 
 
 function HomePage() {
@@ -25,11 +25,11 @@ function HomePage() {
 
     return (
     <div id="project-list">
-        {allProjects.map((projectData, key) => {
+        {projectList.map((project, key) => {
             return (
             <ProjectCard
-                key={`project-${projectData.id}`}
-                projectData={projectData} />
+                key={`project-${project.id}`}
+                projectData={project} />
             );
         })}
     </div>
