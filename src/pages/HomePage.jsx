@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 
 // Data
-import { allProjects as projectList } from "../data";
+// import { allProjects as projectList } from "../data";
+import { allProjects } from "../data";
 
 
 function HomePage() {
@@ -21,6 +22,9 @@ function HomePage() {
         .then((data) => {
             setProjectList(data);
         });
+        
+    // !!! Below line imports the fake data we put in our src file: (comment out when using real stuff)
+    // setProjectList(allProjects);
 }, []);
 
     return (
