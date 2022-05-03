@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Nav() {
     return (
         <nav>
-            <Link to="/">HomePage</Link>
-            {/* <Link to="/project">ProjectPage</Link> */}
+            <Link to="/">Home </Link>
+            <Link to="/project">Projects </Link>
         </nav>
     );
 }
