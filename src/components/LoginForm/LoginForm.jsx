@@ -38,6 +38,7 @@ function LoginForm() {
             const data = await response.json();            
             console.log(data);
             window.localStorage.setItem("token", data.token);
+            window.localStorage.setItem("username", credentials.username);
             navigate("/");
           } catch (err) {
             console.log(err);
