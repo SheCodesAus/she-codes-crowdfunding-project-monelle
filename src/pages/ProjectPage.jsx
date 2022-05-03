@@ -1,23 +1,18 @@
-import React from "react";
-
-import { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 
 // Components
 import ProjectOwner from "../components/ProjectOwner/ProjectOwner";
-
-// // Data
-// import { oneProject } from "../data"
+import PledgeForm from "../components/PledgeForm/PledgeForm";
 
 
 function ProjectPage() {
-
 //  State
-const [projectData, setProjectData] = useState({pledges: []});
+const [projectData, setProjectData] = useState();
 
 // Hooks
 const { id } = useParams();
-console.log(id)
+// console.log(id)
 
 //  Actions and Helpers
 useEffect(() => {
@@ -25,7 +20,8 @@ useEffect(() => {
     .then((results) => {
         return results.json();
     })
-    .then((data) => {setProjectData(data);
+    .then((data) => {
+        setProjectData(data);
     });
 }, [id]);
 
@@ -36,21 +32,24 @@ useEffect(() => {
 
     // Normal state
     return (
-    <React.Fragment>
+    <>
         <h2>{projectData.title}</h2>
-        {/* This added from Hannah's project */}
-        <h3>Created by or whatever <ProjectOwner owner={projectData.owner} /> on {projectData.date_created}</h3>
-        {/* <h3>Created at: {projectData.date_created}</h3> */}
-        <h3>{`Status: ${projectData.is_open}`}</h3>
+        <h3>Created by <ProjectOwner owner={projectData.owner} /></h3>
+        <h3>On {projectData.date_created}</h3>
+        {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
+        <h3>Title: {projectData.description}</h3>
         <h3>Pledges:</h3>
-        <ul>{projectData.pledges.map((pledgeData, key) => {
-            return (
-            <li key={key}>{pledgeData.amount} from {pledgeData.supporter}
-            </li>
-            );
-        })}
-        </ul>
-    </React.Fragment>
+            <ul>
+                {projectData.pledges.map((pledgeData, key) => {
+                return (
+                    <li>
+                    {pledgeData.amount} from {pledgeData.supporter}
+                    </li>
+                );
+                })}
+            </ul>
+            <PledgeForm projectId={id} />
+    </>
 );
 }
 
