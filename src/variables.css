@@ -13,12 +13,3 @@
   --color-tertiary: #202020;
   --color-tertiary-light: #505050;
 }
-
-
-body {
-  background-color: var(--color-primary);
-  font-family: var(--font-primary);
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
