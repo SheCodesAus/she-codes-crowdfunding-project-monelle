@@ -25,8 +25,8 @@ function Nav() {
         // console.log("isUserLoggedIn", isUserLoggedIn)
 
         return isUserLoggedIn
-            ? <button onClick={handleSignOut} className="button">Log out</button>
-            : <button onClick={navigateToLogin} className="button">Login</button>
+            ? <a href="logout" onClick={handleSignOut} className="button">Log out</a>
+            : <a href="login" onClick={navigateToLogin} className="button">Log in</a>
     }
 
 
