@@ -7,8 +7,10 @@ import "./Nav.css";
 
 function Nav() {
 
+    // Hooks
     const navigate = useNavigate();
 
+    // Actions and Helpers
     const navigateToLogin = () => {
         navigate("/login")
     }
@@ -36,7 +38,7 @@ function Nav() {
             </nav>
             <nav className="right-menu">
             <Link className="button" to="/search/">Search </Link>
-            {/* <Link className="button" to="/login/">Log in </Link> */}
+            {/* Below we call the Action for the Login/Logout button */}
             {checkUser()}
             </nav>
         </section>
