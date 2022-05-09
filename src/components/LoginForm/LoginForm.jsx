@@ -7,6 +7,8 @@ function LoginForm() {
         username: "",
         password: "",
     });
+    // Create error state for wrong creds error message:
+    const [error,setError] = useState()
 
     //  Hooks   
     const navigate = useNavigate();
@@ -36,18 +38,28 @@ function LoginForm() {
               }
             );
             const data = await response.json();            
-            console.log(data);
-            window.localStorage.setItem("token", data.token);
-            window.localStorage.setItem("username", credentials.username);
-            navigate("/");
+            console.log("->>>>>>>>>", response,data);
+              if (!response.ok) {
+                setError(data?.non_field_errors ? data.non_field_errors[0] : "Unknown network error, please try again")}
+              else {
+                window.localStorage.setItem("token", data.token);
+                window.localStorage.setItem("username", credentials.username);
+                navigate("/");
+
+              }
+
+
           } catch (err) {
             console.log(err);
           }
         }
       };
 
+  
+
     return (
         <form>
+          {error && <p>{error}</p>}
             <div>
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" placeholder="Enter username" onChange={handleChange}/>
