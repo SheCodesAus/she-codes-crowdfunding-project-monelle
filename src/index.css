@@ -1,24 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Merriweather:wght@300;400;700;900&display=swap');
-
-:root {
-  --font-primary: 'Lato', sans-serif;
-  --font-secondary: 'Merriweather', serif;
-  --light: 300;
-  --regular: 400;
-  --bold: 700;
-  --black: 900;
-  --color-primary: #fbf0cf;
-  --color-secondary: #ff6b02;
-  --color-secondary-dark: #df5d00;
-  --color-tertiary: #202020;
-  --color-tertiary-light: #505050;
-}
-
-
 body {
   background-color: var(--color-primary);
   font-family: var(--font-primary);
-  margin-top: 0px;
+  /* margin-top: 0px;
   margin-left: 0px;
-  margin-right: 0px;
+  margin-right: 0px; */
 }
